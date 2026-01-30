@@ -56,6 +56,7 @@ def number_cups():
     cups_for_sugar = ingredients["sugar"]/recipe["sugar for recipe"]
     cups_for_ice_cups = ingredients["ice_cups"]/recipe["ice_cups for recipe"]
     print(cups_for_lemons, cups_for_sugar,cups_for_ice_cups)
-    if cups_for_lemons > 0:
-        print("ok")
-number_cups()
+    return max(cups_for_lemons,cups_for_ice_cups,cups_for_sugar)
+
+print(number_cups())
+
