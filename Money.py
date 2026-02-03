@@ -8,7 +8,7 @@ priceForIce_cups = 2
 difficulty = input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? ")
 
 def money_setter(difficulty):
-    print("Hello welcome to the Lemonade Stand")
+    print("Choose a vaild mode!")
     global money
     if difficulty == "Easy":
         money += 450
@@ -72,3 +72,4 @@ def shopQuestions(starting_question):
                 print("You now have", money, "dollars and ", ice_cups, " ice cubes")
 current_choice = mainQuestion()
 shopQuestions(starting_question)
+
