@@ -31,4 +31,6 @@ customers = []
 for i in range(10):
     customers.append(Customer())
 
-attributes = customers.get_customer_attributes()
+for each in customers:
+    attributes = each.get_customer_attributes()
+    print(attributes)
