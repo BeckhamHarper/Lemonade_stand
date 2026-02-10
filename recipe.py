@@ -52,9 +52,9 @@ cup_price()
 print("You have", money.money, "dollars,", money.lemons,"lemons,", money.sugar, "tsps of sugar,", money.ice_cups, "ice cubes.\nYoure recipe consists of", recipe["lemons for recipe"], "lemons", recipe["sugar for recipe"], "tsps of sugar, and", recipe["ice_cups for recipe"], "ice cubes.\nYoure price for cups is", price_cup, "dollars.")
 
 def number_cups():
-    cups_for_lemons = ingredients["lemons"]/recipe["lemons for recipe"]
-    cups_for_sugar = ingredients["sugar"]/recipe["sugar for recipe"]
-    cups_for_ice_cups = ingredients["ice_cups"]/recipe["ice_cups for recipe"]
+    cups_for_lemons = int(ingredients["lemons"])/int(recipe["lemons for recipe"])
+    cups_for_sugar = ingredients["sugar"]/int(recipe["sugar for recipe"])
+    cups_for_ice_cups = ingredients["ice_cups"]/int(recipe["ice_cups for recipe"])
     print(cups_for_lemons, cups_for_sugar,cups_for_ice_cups)
     return min(cups_for_lemons,cups_for_ice_cups,cups_for_sugar)
 

@@ -30,7 +30,7 @@ money_setter(difficulty)
 
 def mainQuestion():
     global starting_question
-    starting_question = input("Would you like to start day, go to shop, set the price, or check ingredients? ")
+    starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients? ")
 
 def shopQuestions(starting_question):
     global lemons, sugar, ice_cups, money
@@ -45,7 +45,7 @@ def shopQuestions(starting_question):
                 money += int(bought_lemons)
                 print("Not enough money.")
             elif money > 0:
-                lemons += int(bought_lemons)
+                lemons += int(bought_lemons)*5
                 print("You now have", money, "dollars and ", lemons, " lemons? ")
     
         if items == "sugar":
@@ -56,20 +56,20 @@ def shopQuestions(starting_question):
                 money += int(bought_sugar)
                 print("Not enough money.")
             elif money > 0:
-                sugar += int(bought_sugar)
+                sugar += int(bought_sugar)*100
                 print("You now have", money, "dollars and ", sugar, " sugar")
     
         if items == "ice_cups":
-            bought_ice_cups = int(input("2$ for 200 ice cubes, how many bags do you want to buy"))
             priceForIce_cups = bought_ice_cups*2
+            priceForIce_cups = (bought_ice_cups)
             money -= int(priceForIce_cups)
             if money < 0:
-                money += int(bought_ice_cups*2)
+                money += int(bought_ice_cups)
                 print("Not enough money.")
             elif money > 0:
-                
-                ice_cups +=int(bought_ice_cups)
+                ice_cups +=int(bought_ice_cups)*100
                 print("You now have", money, "dollars and ", ice_cups, " ice cubes")
+
 current_choice = mainQuestion()
 shopQuestions(starting_question)
 
