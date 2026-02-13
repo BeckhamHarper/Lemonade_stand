@@ -6,40 +6,38 @@ sugar = 0
 ice_cups = 0
 priceForIce_cups = 2
 
-difficulty = input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? ")
+# difficulty = input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? ")
 
 
 
 
 def money_setter(difficulty):
-    global money
     if difficulty == "Easy":
-        money += 450
-        print("You have "+ str(money) + " dollars")
+        return 450
+
     elif difficulty == "Normal":
-        money += 300
-        print("You have "+ str(money) + " dollars")
+        return 300
+
     elif difficulty == "Hard":
-        money += 150
-        print("You have "+ str(money) + " dollars")
+        return 150
+
     elif difficulty == "Alejandro":
-        money += 1000
-        print("You have "+ str(money) + " dollars")
+        return 1000
+
     else:
         print("Ending game")
         exit()
 
 
 
-money_setter(difficulty)
+#money_setter(difficulty)
 
 
 
 
 def mainQuestion():
-    global starting_question
     starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients? ")
-
+    return starting_question
 
 
 
@@ -90,8 +88,8 @@ def shopQuestions(starting_question):
 
 
 
-current_choice = mainQuestion()
-shopQuestions(starting_question)
+# current_choice = mainQuestion()
+# shopQuestions(starting_question)
 
 
 
