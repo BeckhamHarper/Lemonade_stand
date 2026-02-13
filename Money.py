@@ -47,41 +47,6 @@ def shopQuestions(starting_question):
     global lemons, sugar, ice_cups, money
     if starting_question == "go to shop":
 
-        items = input("Would you like to buy lemons, sugar, or ice_cups? ")
-   
-        if items == "lemons":
-            bought_lemons = input("1$ for 5 lemons, how many do you want to buy? ")
-            priceForLemons = bought_lemons
-            money -= int(bought_lemons)
-            if money < 0:
-                money += int(bought_lemons)
-                print("Not enough money.")
-            elif money > 0:
-                lemons += int(bought_lemons)*5
-                print("You now have", money, "dollars and ", lemons, " lemons? ")
-   
-        if items == "sugar":
-            bought_sugar = input("1$ for 100 tsp of sugar, how many pounds do you want to buy")
-            priceForSugar = bought_sugar
-            money -= int(bought_sugar)
-            if money < 0:
-                money += int(bought_sugar)
-                print("Not enough money.")
-            elif money > 0:
-                sugar += int(bought_sugar)*100
-                print("You now have", money, "dollars and ", sugar, " sugar")
-   
-        if items == "ice_cups":
-            bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
-            priceForIce_cups = (bought_ice_cups)
-            money -= int(priceForIce_cups)
-            if money < 0:
-                money += int(bought_ice_cups)
-                print("Not enough money.")
-            elif money > 0:
-                ice_cups +=int(bought_ice_cups)*100
-                print("You now have", money, "dollars and ", ice_cups, " ice cubes")
-
         while True:
             items = input("Would you like to buy lemons, sugar, or ice_cups? ")
 

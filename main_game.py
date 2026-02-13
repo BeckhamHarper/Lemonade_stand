@@ -5,10 +5,6 @@ import day
 
 
 while True:
-    user_input = input("Type 'stop' to end the game or press Enter to continue: ")
-    if user_input.lower() == "stop":
-        print("Game ended.")
-        break
 
     money.mainQuestion()
     if money.starting_question == "go to shop":
@@ -23,6 +19,10 @@ while True:
         print(f"Price per cup: {recipe.price_cup}")
     elif money.starting_question == "start day":
         day.startDay
+        user_input = input("Type 'stop' to end the game or press Enter to continue: ")
+        if user_input.lower() == "stop":
+            print("Game ended.")
+            break
     else:
         print("Invalid option. Please try again.")
     recipe.number_cups()
