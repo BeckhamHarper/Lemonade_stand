@@ -1,13 +1,10 @@
 import money
 import recipe
 from customer_class import Customer
+import day
 
 
 while True:
-    user_input = input("Type 'stop' to end the game or press Enter to continue: ")
-    if user_input.lower() == "stop":
-        print("Game ended.")
-        break
 
     money.mainQuestion()
     if money.starting_question == "go to shop":
@@ -17,21 +14,13 @@ while True:
     elif money.starting_question == "change the recipe":
         recipe.recipe_changer()
     elif money.starting_question == "check ingredients":
-        print(f"You have {money.money} dollars, {money.lemons} lemons, {money.sugar} tsps of sugar, {money.ice_cups} ice cubes.")
-        print(f"Your recipe: {recipe.recipe['lemons for recipe']} lemons, {recipe.recipe['sugar for recipe']} tsps sugar, {recipe.recipe['ice_cups for recipe']} ice cubes.")
-        print(f"Price per cup: {recipe.price_cup}")
+        print("You have", money.money, "dollars,", money.lemons,"lemons,", money.sugar, "tsps of sugar,", money.ice_cups, "ice cubes.\nYoure recipe consists of", recipe["lemons for recipe"], "lemons", recipe["sugar for recipe"], "tsps of sugar, and", recipe["ice_cups for recipe"], "ice cubes.\nYoure price for cups is", price_cup, "dollars.\n")
     elif money.starting_question == "start day":
-        recipe.number_cups()
+        day.startDay
+        user_input = input("Type 'stop' to end the game or press Enter to continue: ")
+        if user_input.lower() == "stop":
+            print("Game ended.")
+            break
     else:
         print("Invalid option. Please try again.")
     recipe.number_cups()
-
-customers = []
-
-for i in range(10):
-    customers.append(Customer())
-
-for each in customers:
-    attributes = each.get_customer_attributes()
-    print(attributes)
- 
