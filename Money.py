@@ -31,7 +31,7 @@ def money_setter(difficulty):
 
 
 
-money_setter(difficulty)
+# money_setter(difficulty)
 
 
 
@@ -91,8 +91,8 @@ def shopQuestions(starting_question):
 
 
 
-current_choice = mainQuestion()
-shopQuestions(starting_question)
+# current_choice = mainQuestion()
+# shopQuestions(starting_question)
 
 
 
