@@ -17,7 +17,7 @@ def recipe_changer():
         print("You have,", money.lemons, "lemons")
         
         recipe_lemon = input("How many lemons do you want in your lemonade the minimum is 1 lemons max is 4,\n")
-        if int(recipe_lemon) > 4 or int(recipe_lemon) < 1 or int(recipe_lemon) > money.lemons:
+        if int(recipe_lemon) < 4 or int(recipe_lemon) > 1 or int(recipe_lemon) > money.lemons:
             print("Not a valid number of lemons")
             recipe["lemons for recipe"] = recipe_lemon
         else:    

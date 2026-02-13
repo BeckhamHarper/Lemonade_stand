@@ -1,6 +1,7 @@
 import money
 import recipe
 from customer_class import Customer
+import day
 
 
 while True:
@@ -21,16 +22,7 @@ while True:
         print(f"Your recipe: {recipe.recipe['lemons for recipe']} lemons, {recipe.recipe['sugar for recipe']} tsps sugar, {recipe.recipe['ice_cups for recipe']} ice cubes.")
         print(f"Price per cup: {recipe.price_cup}")
     elif money.starting_question == "start day":
-        recipe.number_cups()
+        day.startDay
     else:
         print("Invalid option. Please try again.")
     recipe.number_cups()
-
-customers = []
-
-for i in range(10):
-    customers.append(Customer())
-
-for each in customers:
-    attributes = each.get_customer_attributes()
-    print(attributes)
