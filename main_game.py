@@ -34,3 +34,4 @@ for i in range(10):
 for each in customers:
     attributes = each.get_customer_attributes()
     print(attributes)
+ 

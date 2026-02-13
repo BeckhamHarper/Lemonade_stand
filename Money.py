@@ -5,7 +5,7 @@ lemons = 0
 sugar = 0
 ice_cups = 0
 priceForIce_cups = 2
-difficulty = input("What difficulty would you like to do, Easy(1), Normal(2), Hard(3) or Alejandro(4? ")
+difficulty = input("What difficulty would you like to do, Easy, Normal, Hard(3) or Alejandro ")
 
 
 
@@ -70,7 +70,7 @@ def shopQuestions(starting_question):
                 sugar += int(bought_sugar)*100
                 print("You now have", money, "dollars and ", sugar, " sugar")
    
-        if items == "ice_cups" or "3":
+        if items == "ice_cups":
             bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
             priceForIce_cups = (bought_ice_cups)
             money -= int(priceForIce_cups)
@@ -80,6 +80,7 @@ def shopQuestions(starting_question):
             elif money > 0:
                 ice_cups +=int(bought_ice_cups)*100
                 print("You now have", money, "dollars and ", ice_cups, " ice cubes")
+
 
 
 

@@ -10,7 +10,7 @@ recipe = {
     "ice_cups for recipe": 1
 }
 price_cup = 0
-money.money_setter
+money.money_setter()
 
 def recipe_changer():
     if money.starting_question == "change the recipe":
@@ -46,10 +46,7 @@ def cup_price():
     global price_cup
     if money.starting_question == "set the price":
         price_cup = float(input("What do you want the price for the lemonade to be?\n"))
-recipe_changer()
-cup_price()
 
-print("You have", money.money, "dollars,", money.lemons,"lemons,", money.sugar, "tsps of sugar,", money.ice_cups, "ice cubes.\nYoure recipe consists of", recipe["lemons for recipe"], "lemons", recipe["sugar for recipe"], "tsps of sugar, and", recipe["ice_cups for recipe"], "ice cubes.\nYoure price for cups is", price_cup, "dollars.")
 
 def number_cups():
     cups_for_lemons = int(ingredients["lemons"])/int(recipe["lemons for recipe"])
@@ -57,6 +54,11 @@ def number_cups():
     cups_for_ice_cups = ingredients["ice_cups"]/int(recipe["ice_cups for recipe"])
     print(cups_for_lemons, cups_for_sugar,cups_for_ice_cups)
     return min(cups_for_lemons,cups_for_ice_cups,cups_for_sugar)
+
+
+recipe_changer()
+cup_price()
+print("You have", money.money, "dollars,", money.lemons,"lemons,", money.sugar, "tsps of sugar,", money.ice_cups, "ice cubes.\nYour recipe consists of", recipe["lemons for recipe"], "lemons", recipe["sugar for recipe"], "tsps of sugar, and", recipe["ice_cups for recipe"], "ice cubes.\nYoure price for cups is", price_cup, "dollars.")
 
 print(number_cups())
 
