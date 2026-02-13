@@ -30,7 +30,11 @@ def money_setter(difficulty):
 
 
 
+<<<<<<< HEAD
 #money_setter(difficulty)
+=======
+# money_setter(difficulty)
+>>>>>>> 551a1870acd6948a401f64e033ac40daaba18cdc
 
 
 
@@ -88,6 +92,10 @@ def shopQuestions(starting_question):
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 551a1870acd6948a401f64e033ac40daaba18cdc
 # current_choice = mainQuestion()
 # shopQuestions(starting_question)
 
