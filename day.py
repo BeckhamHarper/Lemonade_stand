@@ -24,4 +24,4 @@ def startDay(starting_question):
                 print("W")
             
             if customers.get_customer_attributes()["price"] >= recipe.price_cup:
-                print(2)
+                print("Ok")
