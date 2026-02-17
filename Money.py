@@ -1,4 +1,4 @@
-money= 0
+money = 0
 earnings = 0
 purchases = 0
 lemons = 0
@@ -30,17 +30,9 @@ def money_setter(difficulty):
 
 
 
-<<<<<<< HEAD
-#money_setter(difficulty)
-=======
-# money_setter(difficulty)
->>>>>>> 551a1870acd6948a401f64e033ac40daaba18cdc
-
-
-
 
 def mainQuestion():
-    starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients? ")
+    starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients?\n")
     return starting_question
 
 
@@ -92,10 +84,7 @@ def shopQuestions(starting_question):
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 551a1870acd6948a401f64e033ac40daaba18cdc
 # current_choice = mainQuestion()
 # shopQuestions(starting_question)
 
