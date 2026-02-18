@@ -10,7 +10,7 @@ print(f"You have {cash} dollars")
 while True:
     q = (money.mainQuestion())
     if q == "go to shop":
-        money.shopQuestions(money.starting_question)
+        money.shopQuestions(q)
     elif q == "set the price":
         recipe.cup_price()
     elif q == "change the recipe":
