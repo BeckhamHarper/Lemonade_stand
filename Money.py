@@ -9,19 +9,17 @@ priceForIce_cups = 2
 # difficulty = input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? ")
 
 
-
-
 def money_setter(difficulty):
-    if difficulty == "Easy":
+    if difficulty.lower() == "easy":
         return 450
 
-    elif difficulty == "Normal":
+    elif difficulty.lower() == "normal":
         return 300
 
-    elif difficulty == "Hard":
+    elif difficulty.lower() == "hard":
         return 150
 
-    elif difficulty == "Alejandro":
+    elif difficulty.lower() == "alejandro":
         return 1000
 
     else:
