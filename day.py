@@ -2,26 +2,54 @@ import money
 from customer_class import Customer
 import recipe
 days = 1
-customers = []
-
-# for i in range(10):
-#     customers.append(Customer())
-
-# for each in customers:
-#     attributes = each.get_customer_attributes()
-#     print(attributes)
-
 
 def startDay(starting_question):
     if starting_question == "start day":
-
-        while days < 8:
-
-            if customers.get_customer_attributes()["sweetness"] >= recipe()["lemons for recipe"]:
-                print("W")
-
-            if customers.get_customer_attributes()["ice"] >= recipe()["ice_cups for recipe"]:
-                print("W")
+        earnings = 0
+        cups_sold = 0
+        num_customers = 10
+        customers = []
+        
+        # At start of the day, calculate how many cups can be made with current ingredients
+        cups_for_lemons = money.lemons / int(recipe.recipe["lemons for recipe"])
+        cups_for_sugar = money.sugar / int(recipe.recipe["sugar for recipe"])
+        cups_for_ice_cups = money.ice_cups / int(recipe.recipe["ice_cups for recipe"])
+        available_cups = int(min(cups_for_lemons, cups_for_sugar, cups_for_ice_cups))
+        
+        print(f"You can make {available_cups} cups of lemonade today!\n")
+        
+        # Creats the customers
+        for i in range(num_customers):
+            customers.append(Customer())
+        
+        for customer in customers:
+            if available_cups <= 0:
+                print("Out of cups! No more sales today.")
+                break
             
-            if customers.get_customer_attributes()["price"] >= recipe.price_cup:
-                print("Ok")
+            attributes = customer.get_customer_attributes()
+            sweetness = attributes["sweetness"]
+            ice = attributes["ice"]
+            price = attributes["price"]
+            
+            # Checks if customers buys the lemonade
+            if (sweetness >= int(recipe.recipe["lemons for recipe"]) and
+                ice >= int(recipe.recipe["ice_cups for recipe"]) and
+                price >= recipe.price_cup):
+                # Deduct ingredients used for one cup
+                money.lemons -= int(recipe.recipe["lemons for recipe"])
+                money.sugar -= int(recipe.recipe["sugar for recipe"])
+                money.ice_cups -= int(recipe.recipe["ice_cups for recipe"])
+                available_cups -= 1
+                cups_sold += 1
+                earnings += recipe.price_cup
+                print(f"Customer bought lemonade for ${recipe.price_cup}")
+            else:
+                print("Customer did not buy lemonade.")
+        
+        # Add earnings to money and display summary of the day
+        money.money += earnings
+        print("Day Summary:")
+        print(f"Cups sold: {cups_sold}")
+        print(f"Day earnings: ${earnings}")
+        print(f"Total money: ${money.money}")
