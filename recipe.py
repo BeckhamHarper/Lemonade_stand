@@ -1,17 +1,7 @@
 import money
-ingredients = {
-    "lemons": money.lemons,
-    "sugar": money.sugar,
-    "ice_cups": money.ice_cups
-}
-recipe = {
-    "lemons for recipe": 1,
-    "sugar for recipe": 1,
-    "ice_cups for recipe": 1
-}
-price_cup = 0
 
-def recipe_changer():
+
+def recipe_changer(recipe):
     if money.starting_question == "change the recipe":
         print("You have,", money.lemons, "lemons")
         
@@ -46,12 +36,10 @@ def cup_price():
     if money.starting_question == "set the price":
         price_cup = float(input("What do you want the price for the lemonade to be?\n"))
 
-def number_cups():
+
+def number_cups(ingredients,recipe):
     cups_for_lemons = ingredients["lemons"]/int(recipe["lemons for recipe"])
     cups_for_sugar = ingredients["sugar"]/int(recipe["sugar for recipe"])
     cups_for_ice_cups = ingredients["ice_cups"]/int(recipe["ice_cups for recipe"])
     print("You can make", cups_for_lemons,"cups of lemons,", cups_for_sugar,"cups of sugar and,", cups_for_ice_cups,"cups of ice!")
     return min(cups_for_lemons,cups_for_ice_cups,cups_for_sugar)
-# number_cups()
-
-
