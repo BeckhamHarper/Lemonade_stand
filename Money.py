@@ -1,3 +1,4 @@
+
 money = 0
 earnings = 0
 purchases = 0
@@ -6,27 +7,35 @@ sugar = 0
 ice_cups = 0
 priceForIce_cups = 2
 
+# money= 0
+# earnings = 0
+# purchases = 0
+# lemons = 0
+# sugar = 0
+# ice_cups = 0
+# priceForIce_cups = 2
+
+
 # difficulty = input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? ")
 
 
-
-
 def money_setter(difficulty):
-    if difficulty == "Easy":
+    if difficulty.lower() == "easy":
         return 450
 
-    elif difficulty == "Normal":
+    elif difficulty.lower() == "normal":
         return 300
 
-    elif difficulty == "Hard":
+    elif difficulty.lower() == "hard":
         return 150
 
-    elif difficulty == "Alejandro":
+    elif difficulty.lower() == "alejandro":
         return 1000
 
     else:
         print("Ending game")
         exit()
+
 
 
 
@@ -37,8 +46,10 @@ def mainQuestion():
 
 
 
-def shopQuestions(starting_question):
-    global lemons, sugar, ice_cups, money
+def shopQuestions(starting_question, cash):
+    # add cash and the recipe as parameters
+    # have it call cash where it calls money
+    # Have it call the dicitonary values instead of the hardcode values
     if starting_question == "go to shop":
 
         while True:
