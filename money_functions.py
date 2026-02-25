@@ -31,13 +31,12 @@ def money_setter(difficulty):
 
 
 def mainQuestion():
-    starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients? ")
+    starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients?\n ")
     return starting_question
 
 
 
-def shopQuestions(starting_question, cash):
-    # add cash and the recipe as parameters
+def shopQuestions(starting_question, cash, ingredients):
     # have it call cash where it calls money
     # Have it call the dicitonary values instead of the hardcode values
     if starting_question == "go to shop":
@@ -48,35 +47,35 @@ def shopQuestions(starting_question, cash):
             if items == "lemons":
                 bought_lemons = input("1$ for 5 lemons, how many do you want to buy? ")
                 priceForLemons = bought_lemons
-                money -= int(bought_lemons)
-                if money < 0:
-                    money += int(bought_lemons)
+                cash -= int(bought_lemons)
+                if cash < 0:
+                    cash += int(bought_lemons)
                     print("Not enough money.")
-                elif money > 0:
-                    lemons += int(bought_lemons)*5
-                    print("You now have", money, "dollars and ", lemons, " lemons? ")
+                elif cash > 0:
+                    ingredients["lemons"] += int(bought_lemons)*5
+                    print(f"You now have {cash} dollars and {ingredients["lemons"]} lemons? ")
 
             if items == "sugar":
                 bought_sugar = input("1$ for 100 tsp of sugar, how many pounds do you want to buy")
                 priceForSugar = bought_sugar
-                money -= int(bought_sugar)
-                if money < 0:
-                    money += int(bought_sugar)
+                cash -= int(bought_sugar)
+                if cash < 0:
+                    cash += int(bought_sugar)
                     print("Not enough money.")
-                elif money > 0:
-                    sugar += int(bought_sugar)*100
-                    print("You now have", money, "dollars and ", sugar, " sugar")
+                elif cash > 0:
+                    ingredients["sugar"] += int(bought_sugar)*100
+                    print(f"You now have {cash} dollars and  {ingredients['sugar']}  sugar")
 
             if items == "ice_cups":
                 bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
                 priceForIce_cups = (bought_ice_cups)
-                money -= int(priceForIce_cups)
-                if money < 0:
-                    money += int(bought_ice_cups)
+                cash -= int(priceForIce_cups)
+                if cash < 0:
+                    cash += int(bought_ice_cups)
                     print("Not enough money.")
-                elif money > 0:
-                    ice_cups +=int(bought_ice_cups)*100
-                    print("You now have", money, "dollars and ", ice_cups, " ice cubes")
+                elif cash > 0:
+                    ingredients['ice_cups'] +=int(bought_ice_cups)*100
+                    print(f"You now have {cash} dollars and {ingredients['ice_cups']} ice cubes")
             continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
             if continue_shopping.lower() == "stop":
                 break
