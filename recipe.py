@@ -1,9 +1,9 @@
-import money
+import money_functions
 
 
 def recipe_changer(recipe):
-    if money.starting_question == "change the recipe":
-        print("You have,", money.lemons, "lemons")
+    if money_functions.starting_question == "change the recipe":
+        print("You have,", money_functions.lemons, "lemons")
         
         recipe_lemon = input("How many lemons do you want in your lemonade the minimum is 1 lemons max is 4,\n")
         if int(recipe_lemon) > 4 or int(recipe_lemon) < 1:
@@ -13,7 +13,7 @@ def recipe_changer(recipe):
             recipe["lemons for recipe"] = recipe_lemon
             print("You have",recipe['lemons for recipe'], "lemons in your recipe")
         
-        print("You have,", money.sugar, "tsps of sugar")
+        print("You have,", money_functions.sugar, "tsps of sugar")
         recipe_sugar = input("How many tps of sugar do you want in your lemonade the minimum is 1 lemons max is 4,\n")
         if int(recipe_sugar) > 4 or int(recipe_sugar) < 1:
             print("Not a valid number of tps for sugar")
@@ -22,7 +22,7 @@ def recipe_changer(recipe):
             recipe["sugar for recipe"] = recipe_sugar
             print("You have",recipe['sugar for recipe'], "tps of sugar in your recipe")
 
-        print("You have,", money.ice_cups, "ice cubes")
+        print("You have,", money_functions.ice_cups, "ice cubes")
         recipe_ice_cups = input("How many ice cubes do you want in your lemonade the minimum is 1 lemons max is 4,\n")
         if int(recipe_ice_cups) > 4 or int(recipe_ice_cups) < 1:
             print("Not a valid number of ice cubes")
@@ -33,7 +33,7 @@ def recipe_changer(recipe):
 
 def cup_price():
     global price_cup
-    if money.starting_question == "set the price":
+    if money_functions.mainQuestion == "set the price":
         price_cup = float(input("What do you want the price for the lemonade to be?\n"))
 
 
