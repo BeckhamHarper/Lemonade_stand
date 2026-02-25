@@ -1,4 +1,4 @@
-import money
+import Money_functions as money
 from customer_class import Customer
 import recipe
 days = 1
