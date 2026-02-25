@@ -1,33 +1,35 @@
 import Money_functions as money
 from customer_class import Customer
 import recipe
-days = 1
+
+days = 0
 
 def startDay(starting_question):
-    days = 1
+    global days
     if starting_question == "start day":
+        days += 1
         earnings = 0
         cups_sold = 0
         num_customers = 10
         customers = []
-        
+            
         # At start of the day, calculate how many cups can be made with current ingredients
         cups_for_lemons = money.lemons / int(recipe.recipe["lemons for recipe"])
         cups_for_sugar = money.sugar / int(recipe.recipe["sugar for recipe"])
         cups_for_ice_cups = money.ice_cups / int(recipe.recipe["ice_cups for recipe"])
         available_cups = int(min(cups_for_lemons, cups_for_sugar, cups_for_ice_cups))
-        
+            
         print(f"You can make {available_cups} cups of lemonade today!\n")
-        
+            
         # Creats the customers
         for i in range(num_customers):
-            customers.append(Customer())
-        
+                customers.append(Customer())
+            
         for customer in customers:
             if available_cups <= 0:
                 print("Out of cups! No more sales today.")
                 break
-            
+                
             attributes = customer.get_customer_attributes()
             sweetness = attributes["sweetness"]
             ice = attributes["ice"]
@@ -50,23 +52,9 @@ def startDay(starting_question):
         
         # Add earnings to money and display summary of the day
         money.money += earnings
-
         print(f"Day {days} Summary:")
         print(f"Cups sold: {cups_sold}")
         print(f"Day earnings: ${earnings}")
         print(f"Total money: ${money.money}")
         print(f"Remaining ingredients: {money.lemons} lemons, {money.sugar} tsps of sugar, {money.ice_cups} ice cubes\n")
         print(f"End of day, {days}.\n")
-        days += 1
-
-        print("Day Summary:")
-        print(f"Cups sold: {cups_sold}")
-        print(f"Day earnings: ${earnings}")
-        print(f"Total money: ${money.money}")
-
-
-        print("Day Summary:")
-        print(f"Cups sold: {cups_sold}")
-        print(f"Day earnings: ${earnings}")
-        print(f"Total money: ${money.money}")
-

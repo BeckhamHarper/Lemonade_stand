@@ -13,12 +13,6 @@ recipe = {
 price_cup = 1
 
 
-
-
-
-
-
-
 def recipe_changer(recipe):
     print("You have,", money.lemons, "lemons")
     recipe_lemon = input("How many lemons do you want in your lemonade the minimum is 1 lemons max is 4,\n")
@@ -46,6 +40,7 @@ def recipe_changer(recipe):
     else:    
         recipe["ice_cups for recipe"] = recipe_ice_cups
         print("You have",recipe['ice_cups for recipe'], "ice cubes in your recipe")
+
 
 def cup_price():
     global price_cup
