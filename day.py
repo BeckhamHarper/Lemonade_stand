@@ -64,3 +64,9 @@ def startDay(starting_question):
         print(f"Day earnings: ${earnings}")
         print(f"Total money: ${money.money}")
 
+
+        print("Day Summary:")
+        print(f"Cups sold: {cups_sold}")
+        print(f"Day earnings: ${earnings}")
+        print(f"Total money: ${money.money}")
+

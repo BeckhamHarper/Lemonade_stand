@@ -1,4 +1,3 @@
-
 money = 0
 earnings = 0
 purchases = 0
@@ -6,6 +5,15 @@ lemons = 0
 sugar = 0
 ice_cups = 0
 priceForIce_cups = 2
+
+# money= 0
+# earnings = 0
+# purchases = 0
+# lemons = 0
+# sugar = 0
+# ice_cups = 0
+# priceForIce_cups = 2
+
 
 # money= 0
 # earnings = 0

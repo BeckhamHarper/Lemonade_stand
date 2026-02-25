@@ -36,6 +36,7 @@ def recipe_changer():
 
 
 
+
 def recipe_changer(recipe):
     if money.starting_question == "change the recipe":
         print("You have,", money.lemons, "lemons")
@@ -71,6 +72,7 @@ def cup_price():
 
     if money.starting_question == "set the price":
         price_cup = float(input("What do you want the price for the lemonade to be?\n"))
+
 
 def number_cups(ingredients,recipe):
     cups_for_lemons = ingredients["lemons"]/int(recipe["lemons for recipe"])
