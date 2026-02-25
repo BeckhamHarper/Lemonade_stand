@@ -31,6 +31,7 @@ def money_setter(difficulty):
 
 
 def mainQuestion():
+    global starting_question
     starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients?\n ")
     return starting_question
 
