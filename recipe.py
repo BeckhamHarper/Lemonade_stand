@@ -33,7 +33,7 @@ def recipe_changer(recipe):
 
 def cup_price():
     global price_cup
-    if money_functions.starting_question == "set the price":
+    if money_functions.mainQuestion == "set the price":
         price_cup = float(input("What do you want the price for the lemonade to be?\n"))
 
 

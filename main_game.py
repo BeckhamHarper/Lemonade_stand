@@ -1,3 +1,4 @@
+
 from money_functions import money_setter, mainQuestion, shopQuestions
 import recipe
 from customer_class import Customer
@@ -9,7 +10,8 @@ def func_ingredients():
         "sugar": 0,
         "ice_cups": 0
     }
-recipe = {
+
+recipe1 = {
     "lemons for recipe": 1,
     "sugar for recipe": 1,
     "ice_cups for recipe": 1
@@ -23,12 +25,22 @@ while True:
     q = (mainQuestion())
     if q == "go to shop":
         shopQuestions(q, cash, recipe)
+
+cash = money_functions.money_setter(input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? "))
+print(f"You have {cash} dollars")
+
+while True:
+    q = (money_functions.mainQuestion())
+    if q == "go to shop":
+        money_functions.shopQuestions(q, cash, ingredients)
     elif q == "set the price":
         recipe.cup_price()
     elif q == "change the recipe":
-        recipe.recipe_changer(recipe)
+        recipe.recipe_changer(recipe1)
     elif q == "check ingredients":
+
         print("You have", cash, "dollars,", ingredients["lemons"],"lemons,", ingredients["sugar"], "tsps of sugar,", money_functions.ice_cups, "ice cubes.\nYoure recipe consists of", recipe.recipe["lemons for recipe"], "lemons", recipe.recipe["sugar for recipe"], "tsps of sugar, and", recipe.recipe["ice_cups for recipe"], "ice cubes.\nYoure price for cups is", recipe.price_cup, "dollars.\n")
+        print("You have", cash, "dollars,", ingredients["lemons"],"lemons,", ingredients["sugar"], "tsps of sugar,", ingredients['ice_cups'], "ice cubes.\nYoure recipe consists of", recipe1["lemons for recipe"], "lemons", recipe1["sugar for recipe"], "tsps of sugar, and", recipe1["ice_cups for recipe"], "ice cubes.\nYoure price for cups is", price_cup, "dollars.\n")
     elif q == "start day":
         day.startDay(q)
         user_input = input("Type 'stop' to end the game or press Enter to continue: ")
@@ -37,4 +49,4 @@ while True:
             break
     else:
         print("Invalid option. Please try again.")
-    recipe.number_cups()
+    # recipe.number_cups()
