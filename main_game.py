@@ -20,14 +20,11 @@ price_cup = 0
 cash = money_setter(input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? "))
 print(f"You have {cash} dollars")
 
-cash = money_function.money_setter(input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? "))
-print(f"You have {cash} dollars")
-
 while True:
-    q = (money_function.mainQuestion())
+    q = (mainQuestion())
 
     if q == "go to shop":
-        money_function.shopQuestions(q, cash, ingredients)
+        shopQuestions(q, cash, ingredients)
 
     elif q == "set the price":
         recipe.cup_price()

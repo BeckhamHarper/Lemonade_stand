@@ -33,7 +33,7 @@ def mainQuestion():
     return starting_question
 
     
-def shopQuestions(starting_question, cash, ingredients):
+def shopQuestions(starting_question, cash, ingredients, func_ingredients):
     # have it call cash where it calls money
     # Have it call the dicitonary values instead of the hardcode values
     if starting_question == "go to shop":
