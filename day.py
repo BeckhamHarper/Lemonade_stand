@@ -1,4 +1,4 @@
-import money_functions
+import money_function
 from customer_class import Customer
 import recipe
 days = 1
@@ -11,9 +11,9 @@ def startDay(starting_question):
         customers = []
         
         # At start of the day, calculate how many cups can be made with current ingredients
-        cups_for_lemons = money_functions.lemons / int(recipe.recipe["lemons for recipe"])
-        cups_for_sugar = money_functions.sugar / int(recipe.recipe["sugar for recipe"])
-        cups_for_ice_cups = money_functions.ice_cups / int(recipe.recipe["ice_cups for recipe"])
+        cups_for_lemons = money_function.lemons / int(recipe.recipe["lemons for recipe"])
+        cups_for_sugar = money_function.sugar / int(recipe.recipe["sugar for recipe"])
+        cups_for_ice_cups = money_function.ice_cups / int(recipe.recipe["ice_cups for recipe"])
         available_cups = int(min(cups_for_lemons, cups_for_sugar, cups_for_ice_cups))
         
         print(f"You can make {available_cups} cups of lemonade today!\n")
@@ -37,9 +37,9 @@ def startDay(starting_question):
                 ice >= int(recipe.recipe["ice_cups for recipe"]) and
                 price >= recipe.price_cup):
                 # Deduct ingredients used for one cup
-                money_functions.lemons -= int(recipe.recipe["lemons for recipe"])
-                money_functions.sugar -= int(recipe.recipe["sugar for recipe"])
-                money_functions.ice_cups -= int(recipe.recipe["ice_cups for recipe"])
+                money_function.lemons -= int(recipe.recipe["lemons for recipe"])
+                money_function.sugar -= int(recipe.recipe["sugar for recipe"])
+                money_function.ice_cups -= int(recipe.recipe["ice_cups for recipe"])
                 available_cups -= 1
                 cups_sold += 1
                 earnings += recipe.price_cup
@@ -48,8 +48,8 @@ def startDay(starting_question):
                 print("Customer did not buy lemonade.")
         
         # Add earnings to money and display summary of the day
-        money_functions.money += earnings
+        money_function.money += earnings
         print("Day Summary:")
         print(f"Cups sold: {cups_sold}")
         print(f"Day earnings: ${earnings}")
-        print(f"Total money: ${money_functions.money}")
+        print(f"Total money: ${money_function.money}")
