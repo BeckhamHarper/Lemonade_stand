@@ -1,4 +1,3 @@
-from main_game import func_ingredients
 
 # money= 0
 # earnings = 0
