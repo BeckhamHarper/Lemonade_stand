@@ -32,10 +32,8 @@ def shopQuestions(starting_question, cash, ingredients):
     # have it call cash where it calls money
     # Have it call the dicitonary values instead of the hardcode values
     if starting_question == "go to shop":
-
         while True:
             items = input("Would you like to buy lemons, sugar, or ice_cups? ")
-
             if items == "lemons":
                 bought_lemons = input("1$ for 5 lemons, how many do you want to buy? ")
                 priceForLemons = bought_lemons
@@ -68,6 +66,9 @@ def shopQuestions(starting_question, cash, ingredients):
                 elif cash > 0:
                     ingredients["ice_cups"] +=int(bought_ice_cups)*100
                     print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
+            else:
+                print("Not a valid option try again.")
+                continue
             continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
             if continue_shopping.lower() == "stop":
                 break

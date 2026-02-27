@@ -1,4 +1,4 @@
-import money_function
+import money_function as money
 from customer_class import Customer
 import recipe
 
