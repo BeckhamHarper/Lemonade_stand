@@ -13,7 +13,7 @@ recipe1 = {
     "sugar for recipe": 1,
     "ice_cups for recipe": 1
 }
-price_cup = 0
+price_cup = 1
 
 cash = money_function.money_setter(input("What difficulty would you like to do, Easy, Normal, Hard or Alejandro? "))
 print(f"You have {cash} dollars")
