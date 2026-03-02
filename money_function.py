@@ -45,7 +45,7 @@ def shopQuestions(starting_question, cash, ingredients):
                     ingredients["lemons"] += int(bought_lemons)*5
                     print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
 
-            if items == "sugar":
+            elif items == "sugar":
                 bought_sugar = input("1$ for 100 tsp of sugar, how many pounds do you want to buy")
                 priceForSugar = bought_sugar
                 cash -= int(bought_sugar)
@@ -56,7 +56,7 @@ def shopQuestions(starting_question, cash, ingredients):
                     ingredients["sugar"] += int(bought_sugar)*100
                     print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
 
-            if items == "ice_cups":
+            elif items == "ice_cups":
                 bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
                 priceForIce_cups = (bought_ice_cups)
                 cash -= int(priceForIce_cups)
@@ -66,9 +66,10 @@ def shopQuestions(starting_question, cash, ingredients):
                 elif cash > 0:
                     ingredients["ice_cups"] +=int(bought_ice_cups)*100
                     print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
-            else:
+            
+            if items != "lemons" and items != "sugar" and items != "ice_cubes":
                 print("Not a valid option try again.")
-                continue
-            continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
-            if continue_shopping.lower() == "stop":
-                break
+            else:    
+                continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
+                if continue_shopping.lower() == "stop":
+                    break   
