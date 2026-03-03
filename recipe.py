@@ -36,7 +36,9 @@ def cup_price():
         price = float(input("What do you want the price for the lemonade to be?\n"))
         return price
     except ValueError:
-            print(price)
+        print("Please enter a valid price.")
+        return -1
+
 
 def number_cups(ingredients,recipe):
     cups_for_lemons = ingredients["lemons"]/int(recipe["lemons for recipe"])

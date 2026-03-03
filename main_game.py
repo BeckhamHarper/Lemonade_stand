@@ -25,7 +25,10 @@ while True:
         money_function.shopQuestions(q, cash, ingredients)
 
     elif q == "set the price":
-        price_cup = recipe.cup_price()
+        price_cup = -1
+        while price_cup == -1:
+            while price_cup <= 0:
+                price_cup = recipe.cup_price()
         print(f"You have set the price for the lemonade to be {price_cup} dollars per cup.\n")
 
     elif q == "change the recipe":
