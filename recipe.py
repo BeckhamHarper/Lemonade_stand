@@ -32,9 +32,11 @@ def recipe_changer(recipe, ingredients):
             print("You have",recipe['ice_cups for recipe'], "ice cubes in your recipe\n")
 
 def cup_price():
-    price = float(input("What do you want the price for the lemonade to be?\n"))
-    return price
-
+    try:
+        price = float(input("What do you want the price for the lemonade to be?\n"))
+        return price
+    except ValueError:
+            print(price)
 
 def number_cups(ingredients,recipe):
     cups_for_lemons = ingredients["lemons"]/int(recipe["lemons for recipe"])
