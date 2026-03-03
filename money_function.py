@@ -34,40 +34,43 @@ def shopQuestions(starting_question, cash, ingredients):
     if starting_question == "go to shop":
         while True:
             items = input("Would you like to buy lemons, sugar, or ice_cups? ")
-            if items == "lemons":
-                bought_lemons = input("1$ for 5 lemons, how many do you want to buy? ")
-                priceForLemons = bought_lemons
-                cash -= int(bought_lemons)
-                if cash < 0:
-                    cash += int(bought_lemons)
-                    print("Not enough money.")
-                elif cash > 0:
-                    ingredients["lemons"] += int(bought_lemons)*5
-                    print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
+            try:
+                if items == "lemons":
+                        bought_lemons = input("1$ for 5 lemons, how many do you want to buy? ")
+                        priceForLemons = bought_lemons
+                        cash -= int(bought_lemons)
+                        if cash < 0:
+                            cash += int(bought_lemons)
+                            print("Not enough money.")
+                        elif cash > 0:
+                            ingredients["lemons"] += int(bought_lemons)*5
+                            print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
 
-            elif items == "sugar":
-                bought_sugar = input("1$ for 100 tsp of sugar, how many pounds do you want to buy")
-                priceForSugar = bought_sugar
-                cash -= int(bought_sugar)
-                if cash < 0:
-                    cash += int(bought_sugar)
-                    print("Not enough money.")
-                elif cash > 0:
-                    ingredients["sugar"] += int(bought_sugar)*100
-                    print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
+                elif items == "sugar":
+                    bought_sugar = input("1$ for 100 tsp of sugar, how many pounds do you want to buy")
+                    priceForSugar = bought_sugar
+                    cash -= int(bought_sugar)
+                    if cash < 0:
+                        cash += int(bought_sugar)
+                        print("Not enough money.")
+                    elif cash > 0:
+                        ingredients["sugar"] += int(bought_sugar)*100
+                        print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
 
-            elif items == "ice_cups":
-                bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
-                priceForIce_cups = (bought_ice_cups)
-                cash -= int(priceForIce_cups)
-                if cash < 0:
-                    cash += int(bought_ice_cups)
-                    print("Not enough money.")
-                elif cash > 0:
-                    ingredients["ice_cups"] +=int(bought_ice_cups)*100
-                    print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
-            
-            if items != "lemons" and items != "sugar" and items != "ice_cubes":
+                elif items == "ice_cups":
+                    bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
+                    priceForIce_cups = (bought_ice_cups)
+                    cash -= int(priceForIce_cups)
+                    if cash < 0:
+                        cash += int(bought_ice_cups)
+                        print("Not enough money.")
+                    elif cash > 0:
+                        ingredients["ice_cups"] +=int(bought_ice_cups)*100
+                        print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
+            except ValueError:
+                print("Not a valid option")
+                continue
+            if items != "lemons" and items != "sugar" and items != "ice_cups":
                 print("Not a valid option try again.")
             else:    
                 continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
