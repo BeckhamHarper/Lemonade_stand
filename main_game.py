@@ -22,7 +22,7 @@ while True:
     q = (money_function.mainQuestion())
 
     if q == "go to shop":
-        money_function.shopQuestions(q, cash, ingredients)
+        cash = money_function.shopQuestions(q, cash, ingredients)
 
     elif q == "set the price":
         price_cup = -1

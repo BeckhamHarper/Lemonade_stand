@@ -58,7 +58,7 @@ def shopQuestions(starting_question, cash, ingredients):
                     if cash < 0:
                         cash += int(bought_sugar)
                         print("Not enough money.")
-                    elif cash > 0:
+                    elif cash >= 0:
                         ingredients["sugar"] += int(bought_sugar)*100
                         print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
 
@@ -70,7 +70,7 @@ def shopQuestions(starting_question, cash, ingredients):
                     if cash < 0:
                         cash += int(bought_ice_cups)
                         print("Not enough money.")
-                    elif cash > 0:
+                    elif cash >= 0:
                         ingredients["ice_cups"] +=int(bought_ice_cups)*100
                         print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
             except ValueError:
@@ -81,4 +81,4 @@ def shopQuestions(starting_question, cash, ingredients):
                 continue
             continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
             if continue_shopping.lower() == "stop":
-                break
+                return cash
