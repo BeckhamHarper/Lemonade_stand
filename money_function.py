@@ -1,4 +1,3 @@
- 
 def money_setter(difficulty):
     if difficulty.lower() == "easy":
         return 450
@@ -21,12 +20,8 @@ def money_setter(difficulty):
         exit()
 
 
-
-
 def mainQuestion():
     starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients?\n")
-
-
 
 
 def mainQuestion():
@@ -35,15 +30,12 @@ def mainQuestion():
     return starting_question
 
 
-
-
-
-
 def shopQuestions(starting_question, cash, ingredients):
     # add cash and the recipe as parameters
     # have it call cash where it calls money
     # Have it call the dictionary values instead of the hardcode values
     if starting_question == "go to shop":
+        #Add it to where people can't buy negative number of items
         while True:
             try:
                 items = input("Would you like to buy lemons, sugar, or ice_cups? ")
@@ -54,7 +46,7 @@ def shopQuestions(starting_question, cash, ingredients):
                     if cash < 0:
                         cash += int(bought_lemons)
                         print("Not enough money.")
-                    elif cash > 0:
+                    elif cash >= 0:
                         ingredients["lemons"] += int(bought_lemons)*5
                         print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
 
