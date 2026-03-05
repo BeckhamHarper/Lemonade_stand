@@ -34,25 +34,33 @@ def shopQuestions(starting_question, cash, ingredients):
     # add cash and the recipe as parameters
     # have it call cash where it calls money
     # Have it call the dictionary values instead of the hardcode values
+    valid_responses = ["lemons","ice_cups","sugar"]
     if starting_question == "go to shop":
         #Add it to where people can't buy negative number of items
         while True:
             try:
                 items = input("Would you like to buy lemons, sugar, or ice_cups? ")
                 if items == "lemons":
-                    bought_lemons = int(input("1$ for 5 lemons, how many do you want to buy? "))
-                    if bought_lemons > 0:
-                        priceForLemons = bought_lemons
-                        cash -= int(bought_lemons)
-                        if cash < 0:
-                            cash += int(bought_lemons)
-                            print("Not enough money.")
-                        elif cash >= 0:
-                            ingredients["lemons"] += int(bought_lemons)*5
-                            print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
-                    else:
-                        print("Not a valid number to buy")
-                        continue
+                    while items in valid_responses:
+                        #Move the try except to in each thing instead of outside
+                        try:
+                            bought_lemons = int(input("1$ for 5 lemons, how many do you want to buy? "))
+                        except ValueError:
+                            print("Not a valid amount")
+                            continue
+                        if bought_lemons > 0:
+                            priceForLemons = bought_lemons
+                            cash -= int(bought_lemons)
+                            if cash < 0:
+                                cash += int(bought_lemons)
+                                print("Not enough money.")
+                            elif cash >= 0:
+                                ingredients["lemons"] += int(bought_lemons)*5
+                                print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
+                                break
+                        else:
+                            print("Not a valid number to buy")
+                            continue
 
 
                 if items == "sugar":
