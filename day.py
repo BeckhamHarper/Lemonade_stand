@@ -1,6 +1,7 @@
 import money_function as money
 from customer_class import Customer
 import recipe
+import random
 
 days = 0
 
@@ -10,7 +11,7 @@ def startDay(starting_question, ingredients, recipe, cash, price_cup):
         days += 1
         earnings = 0
         cups_sold = 0
-        num_customers = 10
+        num_customers = random.randint(20,50)
         customers = []
             
         # At start of the day, calculate how many cups can be made with current ingredients
