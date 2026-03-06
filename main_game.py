@@ -1,6 +1,7 @@
 import money_function
 import recipe
-from customer_class import Customer
+from custo
+mer_class import Customer
 import day
 
 ingredients = {
