@@ -44,7 +44,7 @@ def shopQuestions(starting_question, cash, ingredients):
                     while items in valid_responses:
                         #Move the try except to in each thing instead of outside
                         try:
-                            bought_lemons = int(input("1$ for 5 lemons, how many do you want to buy? "))
+                            bought_lemons = int(input("1$ for 5 lemons, how many do you want to buy? \n"))
                         except ValueError:
                             print("Not a valid amount")
                             continue
@@ -64,7 +64,7 @@ def shopQuestions(starting_question, cash, ingredients):
 
 
                 if items == "sugar":
-                    bought_sugar = int(input("1$ for 100 tsp of sugar, how many pounds do you want to buy"))
+                    bought_sugar = int(input("1$ for 100 tsp of sugar, how many pounds do you want to buy?\n"))
                     if bought_sugar > 0:
                         priceForSugar = bought_sugar
                         cash -= int(bought_sugar)
@@ -80,7 +80,7 @@ def shopQuestions(starting_question, cash, ingredients):
 
 
                 if items == "ice_cups":
-                    bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy"))
+                    bought_ice_cups = int(input("1$ for 100 ice cubes, how many bags do you want to buy?\n"))
                     if bought_ice_cups > 0:
                         priceForIce_cups = (bought_ice_cups)
                         cash -= int(priceForIce_cups)

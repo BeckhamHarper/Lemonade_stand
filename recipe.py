@@ -1,10 +1,10 @@
 import money_function
 
-
+# Function for changing the recipe
 def recipe_changer(recipe, ingredients):
     if money_function.starting_question == "change the recipe":
         try:
-            print("You have,", ingredients["lemons"], "lemons")
+            print("\nYou have,", ingredients["lemons"], "lemons")
             recipe_lemon = input("How many lemons do you want in your lemonade the minimum is 1 lemons max is 4,\n")
             if int(recipe_lemon) > 4 or int(recipe_lemon) < 1:
                 print("Not a valid number of lemons")
@@ -13,7 +13,7 @@ def recipe_changer(recipe, ingredients):
                 recipe["lemons for recipe"] = recipe_lemon
                 print("You have",recipe['lemons for recipe'], "lemons in your recipe")
             
-            print("You have,", ingredients["sugar"], "tsps of sugar")
+            print("\nYou have,", ingredients["sugar"], "tsps of sugar")
             recipe_sugar = input("How many tps of sugar do you want in your lemonade the minimum is 1 lemons max is 4,\n")
             if int(recipe_sugar) > 4 or int(recipe_sugar) < 1:
                 print("Not a valid number of tps for sugar")
@@ -22,7 +22,7 @@ def recipe_changer(recipe, ingredients):
                 recipe["sugar for recipe"] = recipe_sugar
                 print("You have",recipe['sugar for recipe'], "tps of sugar in your recipe")
 
-            print("You have,", ingredients["ice_cups"], "ice cubes")
+            print("\nYou have,", ingredients["ice_cups"], "ice cubes")
             recipe_ice_cups = input("How many ice cubes do you want in your lemonade the minimum is 1 lemons max is 4,\n")
             if int(recipe_ice_cups) > 4 or int(recipe_ice_cups) < 1:
                 print("Not a valid number of ice cubes")
@@ -32,7 +32,7 @@ def recipe_changer(recipe, ingredients):
                 print("You have",recipe['ice_cups for recipe'], "ice cubes in your recipe\n")
         except ValueError:
             print("Not a valid amount")
-
+# Function for setting the price of the cups!
 def cup_price():
     try:
         price = float(input("What do you want the price for the lemonade to be?\n"))
@@ -42,10 +42,5 @@ def cup_price():
         return -1
 
 
-def number_cups(ingredients,recipe):
-    cups_for_lemons = ingredients["lemons"]/int(recipe["lemons for recipe"])
-    cups_for_sugar = ingredients["sugar"]/int(recipe["sugar for recipe"])
-    cups_for_ice_cups = ingredients["ice_cups"]/int(recipe["ice_cups for recipe"])
-    print("You can make", cups_for_lemons,"cups of lemons,", cups_for_sugar,"cups of sugar and,", cups_for_ice_cups,"cups of ice!")
-    return min(cups_for_lemons,cups_for_ice_cups,cups_for_sugar)
+
 

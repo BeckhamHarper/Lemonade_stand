@@ -40,6 +40,9 @@ while True:
 
     elif q == "start day":
         cash = day.startDay(q, ingredients, recipe1, cash, price_cup)
+        if day.days == 7:
+            print("End of game, you won!")
+            break
         user_input = input("Type 'stop' to end the game or press Enter to continue: ")
         if user_input.lower() == "stop":
             print("Game ended.")
@@ -47,4 +50,3 @@ while True:
 
     else:
         print("Invalid option. Please try again.")
-    # recipe.number_cups()
