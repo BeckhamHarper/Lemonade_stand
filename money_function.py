@@ -1,4 +1,3 @@
-# Function for setting the starting money
 def money_setter(difficulty):
     if difficulty.lower() == "easy":
         return 450
@@ -20,14 +19,16 @@ def money_setter(difficulty):
         print("Ending game")
         exit()
 
+
+def mainQuestion():
+    starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients?\n")
+
+
 def mainQuestion():
     global starting_question
     starting_question = input("Would you like to start day, go to shop, set the price, change the recipe, or check ingredients?\n ")
     return starting_question
 
-def bankruptcy_check():
-    print("You have gone bankrupt! Game over.")
-    exit()
 
 def shopQuestions(starting_question, cash, ingredients):
     valid_responses = ["lemons","ice_cups","sugar"]
@@ -37,47 +38,47 @@ def shopQuestions(starting_question, cash, ingredients):
             try:
                 items = input("Would you like to buy lemons, sugar, or ice_cups? ")
                 if items == "lemons":
-                    while items in valid_responses:
+                    while True:
+                        bought_lemons_str = input("1$ for 5 lemons, how many do you want to buy? \n")
+                        if bought_lemons_str.lower() == "stop":
+                            break
                         try:
-                            bought_lemons = input("1$ for 5 lemons, how many do you want to buy? If you want to leave then type 'stop'\n")
-                            if bought_lemons.lower() == "stop":
-                                break
-                            bought_lemons = int(bought_lemons)
+                            bought_lemons = int(bought_lemons_str)
                         except ValueError:
                             print("Not a valid amount")
                             continue
                         if bought_lemons > 0:
+                            priceForLemons = bought_lemons
                             cash -= int(bought_lemons)
                             if cash <= 0:
                                 cash += int(bought_lemons)
                                 print("Not enough money.")
-                            elif cash > 0:
+                            elif cash >= 0:
                                 ingredients["lemons"] += int(bought_lemons)*5
                                 print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
                                 break
-                        elif bought_lemons == "stop":
-                            break
                         else:
                             print("Not a valid number to buy")
                             continue
 
 
                 if items == "sugar":
-                    while items in valid_responses:
+                    while True:
+                        bought_sugar_str = input("1$ for 100 tsp of sugar, how many pounds do you want to buy?\n")
+                        if bought_sugar_str.lower() == "stop":
+                            break
                         try:
-                            bought_sugar = input("1$ for 100 tsp of sugar, how many pounds do you want to buy? If you want to leave then type 'stop'\n")
-                            if bought_sugar.lower() == "stop":
-                                break
-                            bought_sugar = int(bought_sugar)
+                            bought_sugar = int(bought_sugar_str)
                         except ValueError:
                             print("Not a valid amount")
                             continue
                         if bought_sugar > 0:
+                            priceForSugar = bought_sugar
                             cash -= int(bought_sugar)
-                            if cash <= 0:
+                            if cash < 0:
                                 cash += int(bought_sugar)
                                 print("Not enough money.")
-                            elif cash > 0:
+                            elif cash >= 0:
                                 ingredients["sugar"] += int(bought_sugar)*100
                                 print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
                                 break
@@ -87,27 +88,29 @@ def shopQuestions(starting_question, cash, ingredients):
 
 
                 if items == "ice_cups":
-                    while items in valid_responses:
+                    while True:
+                        bought_ice_cups_str = input("1$ for 100 ice cubes, how many bags do you want to buy?\n")
+                        if bought_ice_cups_str.lower() == "stop":
+                            break
                         try:
-                            bought_ice_cups = input("1$ for 100 ice cubes, how many bags do you want to buy? If you want to leave then type 'stop'\n")
-                            if bought_ice_cups.lower() == "stop":
-                                break
-                            bought_ice_cups = int(bought_ice_cups)
+                            bought_ice_cups = int(bought_ice_cups_str)
                         except ValueError:
                             print("Not a valid amount")
                             continue
                         if bought_ice_cups > 0:
-                            cash -= int(bought_ice_cups)
-                            if cash <= 0:
+                            priceForIce_cups = (bought_ice_cups)
+                            cash -= int(priceForIce_cups)
+                            if cash < 0:
                                 cash += int(bought_ice_cups)
                                 print("Not enough money.")
-                            elif cash > 0:
-                                ingredients["ice_cups"] += int(bought_ice_cups)*100
+                            elif cash >= 0:
+                                ingredients["ice_cups"] +=int(bought_ice_cups)*100
                                 print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
                                 break
                         else:
                             print("Not a valid number to buy")
                             continue
+                        continue
 
             except ValueError:
                 print("Not a valid amount")
