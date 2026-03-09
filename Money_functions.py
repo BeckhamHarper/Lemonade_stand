@@ -78,7 +78,7 @@ def shopQuestions(starting_question, cash, ingredients):
                                 bankruptcy_check()
                             elif cash > 0:
                                 ingredients["sugar"] += int(bought_sugar)*100
-                                print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
+                                print("You now have", cash, "dollars and", ingredients["sugar"], "sugar")
                                 break
                         else:
                             print("Not a valid number to buy")
@@ -101,7 +101,7 @@ def shopQuestions(starting_question, cash, ingredients):
                                 bankruptcy_check()
                             elif cash > 0:
                                 ingredients["ice_cups"] += int(bought_ice_cups)*100
-                                print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
+                                print("You now have", cash, "dollars and", ingredients["ice_cups"], "ice cubes")
                                 break
                         else:
                             print("Not a valid number to buy")
