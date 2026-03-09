@@ -17,7 +17,7 @@ def money_setter(difficulty):
 
 
     else:
-        print("Ending game")
+        print("Not a valid difficulty. Ending game.")
         exit()
 
 def mainQuestion():
@@ -26,16 +26,17 @@ def mainQuestion():
     return starting_question
 
 def bankruptcy_check():
-    print("You have gone bankrupt! Game over.")
+    print("You have lost all your money! Game over.")
     exit()
 
 def shopQuestions(starting_question, cash, ingredients):
     valid_responses = ["lemons","ice_cups","sugar"]
     if starting_question == "go to shop":
-        #Add it to where people can't buy negative number of items
         while True:
             try:
-                items = input("Would you like to buy lemons, sugar, or ice_cups? ")
+                items = input("Would you like to buy lemons, sugar, or ice_cups? If you want to leave then type 'stop'\n")
+                if items == "stop":
+                    return cash
                 if items == "lemons":
                     while items in valid_responses:
                         try:
@@ -49,8 +50,7 @@ def shopQuestions(starting_question, cash, ingredients):
                         if bought_lemons > 0:
                             cash -= int(bought_lemons)
                             if cash <= 0:
-                                cash += int(bought_lemons)
-                                print("Not enough money.")
+                                bankruptcy_check()
                             elif cash > 0:
                                 ingredients["lemons"] += int(bought_lemons)*5
                                 print(f"You now have {cash} dollars and {ingredients['lemons']} lemons.")
@@ -75,8 +75,7 @@ def shopQuestions(starting_question, cash, ingredients):
                         if bought_sugar > 0:
                             cash -= int(bought_sugar)
                             if cash <= 0:
-                                cash += int(bought_sugar)
-                                print("Not enough money.")
+                                bankruptcy_check()
                             elif cash > 0:
                                 ingredients["sugar"] += int(bought_sugar)*100
                                 print("You now have", cash, "dollars and ", ingredients["sugar"], " sugar")
@@ -99,8 +98,7 @@ def shopQuestions(starting_question, cash, ingredients):
                         if bought_ice_cups > 0:
                             cash -= int(bought_ice_cups)
                             if cash <= 0:
-                                cash += int(bought_ice_cups)
-                                print("Not enough money.")
+                                bankruptcy_check()
                             elif cash > 0:
                                 ingredients["ice_cups"] += int(bought_ice_cups)*100
                                 print("You now have", cash, "dollars and ", ingredients["ice_cups"], " ice cubes")
@@ -118,3 +116,4 @@ def shopQuestions(starting_question, cash, ingredients):
             continue_shopping = input("Type 'stop' to stop shopping or press Enter to continue shopping: ")
             if continue_shopping.lower() == "stop":
                 return cash
+    return cash
