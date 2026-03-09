@@ -3,18 +3,14 @@ def money_setter(difficulty):
     if difficulty.lower() == "easy":
         return 450
 
-
     elif difficulty.lower() == "normal":
         return 300
-
 
     elif difficulty.lower() == "hard":
         return 150
 
-
     elif difficulty.lower() == "alejandro":
         return 1000
-
 
     else:
         print("Not a valid difficulty. Ending game.")

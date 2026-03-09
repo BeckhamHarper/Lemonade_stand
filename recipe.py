@@ -14,7 +14,7 @@ def recipe_changer(recipe, ingredients):
                 else:
                     print("Not a valid number of lemons")
             except ValueError:
-                print("Not a valid amount")
+                print("Put in a number please.")
         
         print("\nYou have,", ingredients["sugar"], "tsps of sugar")
         while True:
@@ -27,7 +27,7 @@ def recipe_changer(recipe, ingredients):
                 else:
                     print("Not a valid number of tsps for sugar")
             except ValueError:
-                print("Not a valid amount")
+                print("Put in a number please.")
         
         print("\nYou have,", ingredients["ice_cups"], "ice cubes")
         while True:
@@ -40,7 +40,7 @@ def recipe_changer(recipe, ingredients):
                 else:
                     print("Not a valid number of ice cubes")
             except ValueError:
-                print("Not a valid amount")
+                print("Put in a number please.")
 # Function for setting the price of the cups!
 def cup_price():
     price_input = input("What do you want the price for the lemonade to be?\n")
